@@ -10,4 +10,5 @@ COPY . /app
 WORKDIR /app
 RUN bundle update --bundler && \
     bundle install
-CMD ["rails", "server"]
+ENV PORT=${PORT:-3000}
+CMD ["bash", "-c", "rails server -p $PORT"]
